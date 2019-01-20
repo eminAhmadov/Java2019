@@ -1,3 +1,7 @@
+package main;
+
+import assignment.*;
+import filereading.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;

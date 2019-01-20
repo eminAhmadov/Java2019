@@ -1,3 +1,5 @@
+package assignment;
+
 public class Sale{
 	private int code;
 	private long barcode;

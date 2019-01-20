@@ -1,3 +1,5 @@
+package assignment;
+
 public class Product{
 	private String description;
 	private long barcode;

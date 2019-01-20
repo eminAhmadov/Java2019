@@ -1,3 +1,5 @@
+package assignment;
+
 import java.util.Date;
 
 public class GoldenTicket{
