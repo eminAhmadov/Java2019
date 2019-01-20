@@ -9,12 +9,9 @@ public class OompaLoompaSong{
 	private ArrayList<String> song = new ArrayList<String>();
 	private final String FILENAME = "OompaLoompaSong.txt";
 	
-	//Constructors:
-	// define how many lines  the song shall have
 	public OompaLoompaSong(int lines){
 		this.lines = lines;
 		
-		//reading from file
 		try{
 		song = readSongFromFile();
 		} catch(IOException e){}
@@ -35,7 +32,6 @@ public class OompaLoompaSong{
 		return songFromFile;
 	}
 
-	// Return a String with the song
 	public String sing(){
 		Random random = new Random();
 		String s = "";

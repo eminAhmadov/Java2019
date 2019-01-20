@@ -5,7 +5,6 @@ public class GoldenTicket{
 	private Date raffled;
 	boolean wasRaffled = false;
 	
-	//Constructors:
 	public GoldenTicket(){}
 	
 	public GoldenTicket(String code, Date raffled){
@@ -13,7 +12,6 @@ public class GoldenTicket{
 		this.raffled = raffled;
 	}
 
-	// Getters and Setters
 	public void setCode(String code){
 		this.code = code;
 	}
@@ -31,7 +29,6 @@ public class GoldenTicket{
 	public void setWasRaffled(boolean wasRaffled){
 		this.wasRaffled = wasRaffled;
 	}
-	// If the current ticket has been already raffled
 	public boolean isRaffled(){
 		return wasRaffled;
 	}
