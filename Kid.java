@@ -19,22 +19,19 @@ public class Kid extends Being{
 		this.arrayList = arrayList;
 	}
 	
-	//getters
+	
 	public String getBirthday(){
 		return dateFormat.format(birthday);
 	}
-	
-	public ArrayList<Product> getProductList(){
-		return new ArrayList<Product>(arrayList);
-	}
-	
-	//setters
 	public void setBirthday(String birthday){
 		try {
 			this.birthday = dateFormat.parse(birthday);
 		}catch (java.text.ParseException e){}
 	}
 	
+	public ArrayList<Product> getProductList(){
+		return new ArrayList<Product>(arrayList);
+	}
 	public void setArrayList(ArrayList<Product> arrayList){
 		this.arrayList = arrayList;
 	}

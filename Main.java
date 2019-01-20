@@ -1,4 +1,7 @@
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Random;
+import java.util.Date;
 
 
 public class Main{
@@ -48,7 +51,10 @@ public class Main{
 		productsList.add(product9);
 		productsList.add(product10);
 		
+		Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();
 		
+		ArrayList <GoldenTicket> ticketsList = generateGoldenTickets(i);
 		
 		
 		
@@ -57,4 +63,23 @@ public class Main{
 		
 		
 	}
+	
+	public static ArrayList<GoldenTicket> generateGoldenTickets(int n){
+		//GoldenTickets tickets1 = new GoldenTickets();
+		//GoldenTickets tickets2 = new GoldenTickets();
+		//GoldenTickets tickets3 = new GoldenTickets();
+		
+		ArrayList <GoldenTicket> ticketsList = new ArrayList<>();
+		
+		Random rand = new Random();
+		for(int i=0; i<n; i++){
+			GoldenTicket goldenticket = new GoldenTicket(String.valueOf(rand.nextInt(200) + 100), new Date());
+			ticketsList.add(goldenticket);
+		}
+		
+		return ticketsList;
+		
+	}
+	
+	
 }		
