@@ -56,6 +56,7 @@ public class Main{
 		
 		ArrayList <GoldenTicket> ticketsList = generateGoldenTickets(i);
 		
+		listAllGoldenTickets(ticketsList);
 		
 		
 		
@@ -79,6 +80,14 @@ public class Main{
 		
 		return ticketsList;
 		
+	}
+	
+	
+	public static void listAllGoldenTickets(ArrayList<GoldenTicket> ticketsList){
+		System.out.println("The List of golden tickets: ");
+		for(GoldenTicket goldenticket : ticketsList){
+			System.out.println("Code: " + goldenticket.getCode() + " Raffled: " + goldenticket.getRaffled());
+		}
 	}
 	
 	
