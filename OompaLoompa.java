@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class OompaLoompa extends Being{
 	private int height;
 	private String favoriteFood;
@@ -22,5 +24,11 @@ public class OompaLoompa extends Being{
 	public String getFavoriteFood(){
 		return favoriteFood;
 	}
+	
+	@Override
+	public void addToProductList(Product product){}
+	
+	@Override
+	public ArrayList<Product> getProductList(){return null;}
 	
 }

@@ -8,6 +8,7 @@ public class OompaLoompaSong{
 	private int lines;
 	private ArrayList<String> song = new ArrayList<String>();
 	private final String FILENAME = "OompaLoompaSong.txt";
+	
 	//Constructors:
 	// define how many lines  the song shall have
 	public OompaLoompaSong(int lines){
@@ -38,6 +39,7 @@ public class OompaLoompaSong{
 	public String sing(){
 		Random random = new Random();
 		String s = "";
+		System.out.println("The OompaLoompa song: ");
 		for(int i=0; i<lines; i++){
 			s = s + song.get(random.nextInt(song.size())) + "\n";
 		}
