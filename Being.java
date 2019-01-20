@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public abstract class Being{
 	
 	private int code;
@@ -23,5 +25,8 @@ public abstract class Being{
 	public String getName(){
 		return name;
 	}
+	
+	public abstract void addToProductList(Product product);
+	public abstract ArrayList<Product> getProductList();
 	
 }

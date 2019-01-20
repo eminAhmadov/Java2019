@@ -17,7 +17,7 @@ public class Main{
 		OompaLoompa op1 = new OompaLoompa(777, "Name1", 123, "Food1");
 		OompaLoompa op2 = new OompaLoompa(888, "Name2", 124, "Food2");
 		
-		ArrayList <Being> beingList = new ArrayList<>();
+		ArrayList<Being> beingList = new ArrayList<>();
 		beingList.add(kid1);
 		beingList.add(kid2);
 		beingList.add(kid3);
@@ -38,7 +38,7 @@ public class Main{
 		Product product9 = new Product("Chocolate9", 988559, "Copy9", null);
 		Product product10 = new Product("Chocolate10", 988510, "Copy10", null);
 		
-		ArrayList <Product> productsList = new ArrayList<>();
+		ArrayList<Product> productsList = new ArrayList<>();
 		
 		productsList.add(product1);
 		productsList.add(product2);
@@ -51,20 +51,31 @@ public class Main{
 		productsList.add(product9);
 		productsList.add(product10);
 		
+		System.out.print("Please give the number of golden tickets: ");
 		Scanner sc = new Scanner(System.in);
 		int i = sc.nextInt();
-		
 		ArrayList <GoldenTicket> ticketsList = generateGoldenTickets(i);
 		
 		listAllGoldenTickets(ticketsList);
+		raffleTickets(ticketsList, productsList);
+		listRaffledTickets(ticketsList);
 		
+		OompaLoompaSong song = new OompaLoompaSong(5);
+		System.out.println(song.sing());
 		
+		registerSale(111, 988551, productsList, beingList);
+		registerSale(222, 988552, productsList, beingList);
+		registerSale(333, 988553, productsList, beingList);
+		registerSale(444, 988554, productsList, beingList);
+		registerSale(555, 988555, productsList, beingList);
+		registerSale(666, 988556, productsList, beingList);
 		
-		
+		listWinners(beingList);
 		
 		
 	}
 	
+	//Register Prize tickets
 	public static ArrayList<GoldenTicket> generateGoldenTickets(int n){
 		//GoldenTickets tickets1 = new GoldenTickets();
 		//GoldenTickets tickets2 = new GoldenTickets();
@@ -74,21 +85,72 @@ public class Main{
 		
 		Random rand = new Random();
 		for(int i=0; i<n; i++){
-			GoldenTicket goldenticket = new GoldenTicket(String.valueOf(rand.nextInt(200) + 100), new Date());
-			ticketsList.add(goldenticket);
+			GoldenTicket goldenTicket = new GoldenTicket(String.valueOf(rand.nextInt(200) + 100), new Date());
+			ticketsList.add(goldenTicket);
 		}
 		
 		return ticketsList;
 		
 	}
 	
-	
+	//List all prize tickets
 	public static void listAllGoldenTickets(ArrayList<GoldenTicket> ticketsList){
 		System.out.println("The List of golden tickets: ");
-		for(GoldenTicket goldenticket : ticketsList){
-			System.out.println("Code: " + goldenticket.getCode() + " Raffled: " + goldenticket.getRaffled());
+		for(GoldenTicket goldenTicket : ticketsList){
+			System.out.println("Code: " + goldenTicket.getCode() + " Raffled: " + goldenTicket.getRaffled());
 		}
 	}
 	
+	//List only raffled tickets
+	public static void listRaffledTickets(ArrayList<GoldenTicket> ticketsList){
+		System.out.println("The List of RAFFLED golden tickets: ");
+		for(GoldenTicket goldenTicket : ticketsList){
+			if(goldenTicket.isRaffled()){
+				System.out.println("Code: " + goldenTicket.getCode() + " Raffled: " + goldenTicket.getRaffled());
+			}
+		}
+	}
 	
+	//Raffle tickets
+	public static void raffleTickets(ArrayList<GoldenTicket> ticketsList, ArrayList<Product> productsList){
+		Random rand = new Random();
+		for(int i=0; i < ticketsList.size(); i++){
+			int index = rand.nextInt(productsList.size());
+			if(!ticketsList.get(i).isRaffled()){
+				if(productsList.get(index).getGoldenTicket() == null){
+					productsList.get(index).setGoldenTicket(ticketsList.get(i));
+					ticketsList.get(i).setWasRaffled(true);
+				}else{
+					i--;
+				}
+			}
+		}
+	}
+	
+	//Register sale
+	public static void registerSale(int code, long barcode, ArrayList<Product> productsList, ArrayList<Being> beingList){
+		for(int i=0; i<beingList.size(); i++){
+			if(beingList.get(i) instanceof Kid && beingList.get(i).getCode() == code){
+				for(Product product : productsList){
+					if(product.getBarcode() == barcode){
+						beingList.get(i).addToProductList(product);
+						product.setBarcode(0);
+					}
+				}	
+			}
+		}
+	}
+	
+	//List winners
+	public static void listWinners(ArrayList<Being> beingList){
+		for(Being being : beingList){
+			if(being instanceof Kid){
+				for(Product product: being.getProductList()){
+				if(product.getGoldenTicket() != null){
+					System.out.println(being.getName() + " with code " + being.getCode() + " has won the Golden Ticket!");
+				}
+			}
+			}
+		}
+	}
 }		
