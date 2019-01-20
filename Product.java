@@ -1,8 +1,8 @@
 public class Product{
-	String description;
-	long barcode;
-	String serialNumber;
-	GoldenTicket priceTicket;
+	private String description;
+	private long barcode;
+	private String serialNumber;
+	private GoldenTicket priceTicket;
 	
 	public Product(String description, long barcode,
 					String serialNumber, GoldenTicket priceTicket){
