@@ -4,6 +4,8 @@ public class Product{
 	private String serialNumber;
 	private GoldenTicket priceTicket;
 	
+	public Product(){}
+	
 	public Product(String description, long barcode,
 					String serialNumber, GoldenTicket priceTicket){
 		this.description = description;

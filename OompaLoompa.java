@@ -2,6 +2,8 @@ public class OompaLoompa extends Being{
 	private int height;
 	private String favoriteFood;
 	
+	public OompaLoompa(){}
+	
 	public OompaLoompa(int code, String name, int height, String favoriteFood){
 		super(code, name);
 		this.height = height;

@@ -8,6 +8,8 @@ public class Kid extends Being{
 	
 	private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");
 	
+	public Kid(){}
+	
 	public Kid(int code, String name, String birthday, ArrayList<Product> arrayList){
 		super(code, name);
 		try {
